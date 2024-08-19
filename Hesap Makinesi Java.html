@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Makinesi Çalışması</title>
+</head>
+<body>
+    <form>
+        1-sayıyı gir:<input type="text" id="a"> <br>
+        2-sayıyı gir:<input type="text" id="b"> <br>
+        <input type="radio" name="secim" id="topla" value="topla"> Topla
+        <input type="radio" name="secim" id="carp" value="carp"> Çarp
+        <input type="radio" name="secim" id="cikar" value="cikar"> Çıkar
+        <input type="radio" name="secim" id="bol" value="bol"> Böl
+        <input type="radio" name="secim" id="mod" value="mod"> Mod<br>
+        <button onclick="hesapla()" type="button">Hesapla</button>
+        <h1 id="bul"></h1>
+    </form>
+    <script>
+        function hesapla() {
+            var n1 = Number(document.getElementById("a").value);
+            var n2 = Number(document.getElementById("b").value);
+
+            if (document.getElementById("topla").checked) {
+                var sonuc = n1 + n2;
+                document.getElementById("bul").innerHTML = "Toplam: " + sonuc;
+            } else if (document.getElementById("carp").checked) {
+                var sonuc = n1 * n2;
+                document.getElementById("bul").innerHTML = "Çarpımı: " + sonuc;
+            } else if (document.getElementById("cikar").checked) {
+                var sonuc = n1 - n2;
+                document.getElementById("bul").innerHTML = "Farkı: " + sonuc;
+            } else if (document.getElementById("bol").checked) {
+                var sonuc = n1 / n2;
+                document.getElementById("bul").innerHTML = "Bölüm: " + sonuc;
+            } else if (document.getElementById("mod").checked) {
+                var sonuc = n1 % n2;
+                document.getElementById("bul").innerHTML = "Kalan: " + sonuc;
+            }
+            else
+            document.getElementById("bul").innerHTML = "HATA! ";
+        }
+    </script>
+</body>
+</html>
